@@ -1,0 +1,4 @@
+<div ng-repeat="category in categories">
+    <h3 id="/user/{{category.url}}" name="/user/{{category.url}}">{{category.name}}</h3>
+    <div ui-view="{{category.url}}"></div>
+</div>

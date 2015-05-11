@@ -1,0 +1,21 @@
+[
+    {
+        "name": "用户行为",
+        "url": "index.user"
+    }, {
+        "name": "交易行为",
+        "url": "index.user"
+    }, {
+        "name": "资金流向",
+        "url": "index.user"
+    }, {
+        "name": "招财猫日报",
+        "url": "index.user"
+    }, {
+        "name": "网贷之家数据",
+        "url": "index.user"
+    }, {
+        "name": "流失边缘用户站岗余额分布",
+        "url": "index.user"
+    }
+]

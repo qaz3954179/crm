@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>${param.title}</title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content=""/>
+
+    <!-- start: Fav Icon -->
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- end: Fav Icon -->
+
+    <link href="/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+    <!-- start: Script -->
+    <script type="text/javascript" src="/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/echarts/build/dist/echarts-all.js"></script>
+    <script type="text/javascript" src="/Content/bower_components/moment/min/moment.min.js"></script>
+    
+
+</head>
+<body ng-app="ReportApp">
+    <div ui-view="navbar" class="navbar navbar-default navbar-static-top">
+        
+    </div>
+    <div ui-view></div>
+    <script type="text/javascript" src="/app/js/app.js" ></script>
+    <script type="text/javascript" src="/app/js/directives.js" ></script>
+    <script type="text/javascript" src="/app/js/services.js" ></script>
+    <script type="text/javascript" src="/app/js/controllers.js" ></script>
+</body>
+</html>

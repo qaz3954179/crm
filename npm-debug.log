@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g', 'yog2' ]
+2 info using npm@1.4.28
+3 info using node@v0.11.14
+4 verbose node symlink /usr/bin/node
+5 verbose cache add [ 'yog2', null ]
+6 verbose cache add name=undefined spec="yog2" args=["yog2",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'yog2',
+7 verbose parsed url   path: 'yog2',
+7 verbose parsed url   href: 'yog2' }
+8 silly lockFile 202c9ab0-yog2 yog2
+9 verbose lock yog2 /home/yongqiang/.npm/202c9ab0-yog2.lock
+10 silly lockFile 202c9ab0-yog2 yog2
+11 silly lockFile 202c9ab0-yog2 yog2
+12 verbose addNamed [ 'yog2', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 0e19c1e6-yog2 yog2@
+15 verbose lock yog2@ /home/yongqiang/.npm/0e19c1e6-yog2.lock
+16 silly addNameRange { name: 'yog2', range: '*', hasData: false }
+17 verbose request where is /yog2
+18 verbose request registry http://registry.npmjs.org/
+19 verbose request id 0ba622e53433a536
+20 verbose url raw /yog2
+21 verbose url resolving [ 'http://registry.npmjs.org/', './yog2' ]
+22 verbose url resolved http://registry.npmjs.org/yog2
+23 verbose request where is http://registry.npmjs.org/yog2
+24 info trying registry request attempt 1 at 12:38:36
+25 http GET http://registry.npmjs.org/yog2
+26 http 200 http://registry.npmjs.org/yog2
+27 silly registry.get cb [ 200,
+27 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"5VQQ0IM3RG6SISSUGO9ERUC6Q"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     'content-length': '36757',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     date: 'Sun, 10 May 2015 04:38:37 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'close',
+27 silly registry.get     'x-served-by': 'cache-nrt6127-NRT',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1431232717.107195,VS0,VE710',
+27 silly registry.get     vary: 'Accept' } ]
+28 silly addNameRange number 2 { name: 'yog2', range: '*', hasData: true }
+29 silly addNameRange versions [ 'yog2',
+29 silly addNameRange   [ '0.0.0',
+29 silly addNameRange     '0.0.1',
+29 silly addNameRange     '0.0.2',
+29 silly addNameRange     '0.0.3',
+29 silly addNameRange     '0.0.4',
+29 silly addNameRange     '0.0.5',
+29 silly addNameRange     '0.0.6',
+29 silly addNameRange     '0.0.7',
+29 silly addNameRange     '0.0.9',
+29 silly addNameRange     '0.0.10' ] ]
+30 verbose addNamed [ 'yog2', '0.0.10' ]
+31 verbose addNamed [ '0.0.10', '0.0.10' ]
+32 silly lockFile 076f7775-yog2-0-0-10 yog2@0.0.10
+33 verbose lock yog2@0.0.10 /home/yongqiang/.npm/076f7775-yog2-0-0-10.lock
+34 silly lockFile b1b36b69-y-npmjs-org-yog2-yog2-0-0-10-tgz http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+35 verbose lock http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz /home/yongqiang/.npm/b1b36b69-y-npmjs-org-yog2-yog2-0-0-10-tgz.lock
+36 verbose addRemoteTarball [ 'http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz',
+36 verbose addRemoteTarball   '5397d2c4a2b3f364641b853a06b50998d708219a' ]
+37 info retry fetch attempt 1 at 12:38:38
+38 verbose fetch to= /tmp/npm-2149-5WqlF5Z9/registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+39 http GET http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+40 http 200 http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+41 silly lockFile b1b36b69-y-npmjs-org-yog2-yog2-0-0-10-tgz http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+42 silly lockFile b1b36b69-y-npmjs-org-yog2-yog2-0-0-10-tgz http://registry.npmjs.org/yog2/-/yog2-0.0.10.tgz
+43 silly lockFile 076f7775-yog2-0-0-10 yog2@0.0.10
+44 silly lockFile 076f7775-yog2-0-0-10 yog2@0.0.10
+45 silly lockFile 0e19c1e6-yog2 yog2@
+46 silly lockFile 0e19c1e6-yog2 yog2@
+47 error Error: EACCES, mkdir '/home/yongqiang/.npm/yog2/0.0.10'
+47 error     at Error (native)
+47 error  { [Error: EACCES, mkdir '/home/yongqiang/.npm/yog2/0.0.10']
+47 error   stack: 'Error: EACCES, mkdir \'/home/yongqiang/.npm/yog2/0.0.10\'\n    at Error (native)',
+47 error   errno: -13,
+47 error   code: 'EACCES',
+47 error   path: '/home/yongqiang/.npm/yog2/0.0.10' }
+48 error Please try running this command again as root/Administrator.
+49 error System Linux 3.13.0-24-generic
+50 error command "/usr/bin/node" "/usr/bin/npm" "install" "-g" "yog2"
+51 error cwd /home/yongqiang/src/crm
+52 error node -v v0.11.14
+53 error npm -v 1.4.28
+54 error path /home/yongqiang/.npm/yog2/0.0.10
+55 error code EACCES
+56 error errno -13
+57 error stack Error: EACCES, mkdir '/home/yongqiang/.npm/yog2/0.0.10'
+57 error stack     at Error (native)
+58 verbose exit [ -13, true ]

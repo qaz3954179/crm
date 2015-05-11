@@ -1,0 +1,49 @@
+<div class="well">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>&nbsp</th>
+            <th>网站访问uv</th>
+            <th>日活跃用户数</th>
+            <th>注册用户数</th>
+            <th>验证手机数</th>
+            <th>开通汇付</th>
+            <th>首次充值用户数</th>
+            <th>首次投资用户数</th>
+            <th>注册且投资用户数</th>
+        </tr>
+        <tr>
+            <td>当日数据</td>
+            <td>{{d.uv}}</td>
+            <td>{{d.summary}}</td>
+            <td>{{d.registed}}</td>
+            <td>{{d.valided}}</td>
+            <td>{{d.huifu}}</td>
+            <td>{{d.firstRecharge}}</td>
+            <td>{{d.firstInvest}}</td>
+            <td>{{d.registedAndInvested}}</td>
+        </tr>
+        <tr>
+            <td>转化率</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>&nbsp</td>
+            <td>{{(d.valided / d.registed * 100).toFixed(0) + '%'}}</td>
+            <td>{{(d.huifu / d.registed * 100).toFixed(0) + '%'}}</td>
+            <td>{{(d.firstRecharge / d.registed * 100).toFixed(0) + '%'}}</td>
+            <td>{{(d.firstInvest / d.registed * 100).toFixed(0) + '%'}}</td>
+            <td>{{(d.registedAndInvested / d.registed * 100).toFixed(0) + '%'}}</td>
+        </tr>
+        <tr>
+            <td>预警值</td>
+            <td>{{avg.uv}}</td>
+            <td>{{avg.summary}}</td>
+            <td>{{avg.registed}}</td>
+            <td>{{avg.valided}}</td>
+            <td>{{avg.huifu}}</td>
+            <td>{{avg.firstRecharge}}</td>
+            <td>{{avg.firstInvest}}</td>
+            <td>{{avg.registedAndInvested}}</td>
+        </tr>
+    </table>
+    <div echarts type="funnel" refresh="{{refresh}}" style="height: 400px;"  summary="{{d.summary}}"></div>
+</div>
