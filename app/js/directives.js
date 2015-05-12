@@ -1,4 +1,4 @@
-var directives = angular.module('ReportApp.Directives', []);
+var directives = angular.module('ReportApp.Directives', ['ReportApp', 'ReportApp.Filters']);
 directives.directive('echarts', function () {
     return {
         restrict: 'AE',
@@ -7,126 +7,61 @@ directives.directive('echarts', function () {
         },
         link: function (scope, element, attr) {
             scope.mychart = echarts.init(element[0]);
-            switch (attr.type) {
-                case 'funnel':
-                    var opt = {
-                        title : {
-                            text: '漏斗图',
-                            subtext: '全站用户注册转化'
-                        },
-                        tooltip : {
-                            trigger: 'item',
-                            formatter: '{a} <br/>{b} : {c}%'
-                        },
-                        toolbox: {
-                            show : true,
-                            feature : {
-                                saveAsImage : {show: true}
-                            }
-                        },
-                        legend: {
-                            data : ['网站访问uv', '日活跃用户数', '注册用户数', '验证手机数', '开通汇付', '首次充值用户数', '首次投资用户数']
-                        },
-                        calculable : true,
-                        series : [
-                            {
-                                name: '漏斗图',
-                                type: 'funnel',
-                                width: '60%',
-                                data: [
-                                    {value: 0, name: '网站访问uv'},
-                                    {value: 0, name: '日活跃用户数'},
-                                    {value: 0, name: '注册用户数'},
-                                    {value: 0, name: '验证手机数'},
-                                    {value: 0, name: '开通汇付'},
-                                    {value: 0, name: '首次充值用户数'},
-                                    {value: 0, name: '首次投资用户数'},
-                                    {value: 0, name: '注册且投资用户数'}
-                                ]
-                            }
-                        ]
-                    };
-                    break;
-                case 'bar_line':
-                    var opt = {
-                        tooltip : {
-                            trigger: 'axis'
-                        },
-                        toolbox: {
-                            show : true,
-                            feature : {
-                                mark : {show: true},
-                                saveAsImage : {show: true}
-                            }
-                        },
-                        calculable : true,
-                        legend: {
-                            data:['手机登陆用户','手机登陆占比']
-                        },
-                        xAxis : [
-                            {
-                                type : 'category',
-                                data : ['']
-                            }
-                        ],
-                        yAxis : [
-                            {
-                                type : 'value',
-                                name : '手机登陆用户',
-                                axisLabel : {
-                                    formatter: '{value}'
-                                }
-                            },
-                            {
-                                type : 'value',
-                                name : '手机登陆占比',
-                                axisLabel : {
-                                    formatter: '{value} %'
-                                }
-                            }
-                        ],
-                        series : [
-
-                            {
-                                name:'手机登陆用户',
-                                type:'bar',
-                                data:['']
-                            },
-                            {
-                                name:'手机登陆占比',
-                                type:'line',
-                                data:['']
-                            }
-                        ]
-                    };
-                    break;
-            }
-                    
-            scope.mychart.setOption(opt);
+            scope.mychart.showLoading({
+                text: '正在努力的读取数据中...'
+            });
+   
             var watch = scope.$watch('refresh', function (newValue, oldValue, scope) {
                 if (newValue != oldValue && scope.$parent.data) {
                     var d = scope.$parent.data;
+                    scope.mychart.hideLoading();
                     scope.mychart.setOption(d);
-                    //watch();
+                    watch();
                 }
             });
         }
     };
 });
 
-directives.directive('datepicker', function () {
+directives.directive('datepicker', ['$parse', function ($parse) {
     return {
         restrict: 'A',
+        scope: {
+            'date': '=',
+            'update': '&'
+        },
         link: function (scope, element, attr) {
-            element.find('input').datepicker({
+            element.datepicker({
+                language: 'zh-CN',
                 format: 'yyyy-mm-dd',
                 autoclose: true,
                 todayHighlight: true
-            });
-
-            element.find('button').on('click', function () {
-                alert('search');
+            }).on('changeDate', function (e) {
+                scope.date = $('#search-input').val();
+                var fn = $parse(scope.update);
+                scope.$apply(function () {
+                    fn(scope.date);
+                });
             });
         }
     };
-});
+}]);
+directives.directive('search', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        scope: {
+            search: '&'
+        },
+        link: function (scope, element, attr) {
+            element.bind('click', function (event) {
+                var date = $('#search-input').val();
+                var fn = $parse(scope.search);
+                scope.$apply(function () {
+                    event.stopPropagation();
+                    event.preventDefault();
+                    fn(date);
+                });
+            });
+        }
+    };
+}]);

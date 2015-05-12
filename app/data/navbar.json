@@ -4,18 +4,18 @@
         "url": "index.user"
     }, {
         "name": "交易行为",
-        "url": "index.user"
+        "url": "index.trade"
     }, {
         "name": "资金流向",
-        "url": "index.user"
+        "url": "index.user3"
     }, {
         "name": "招财猫日报",
-        "url": "index.user"
+        "url": "index.user4"
     }, {
         "name": "网贷之家数据",
-        "url": "index.user"
+        "url": "index.user5"
     }, {
         "name": "流失边缘用户站岗余额分布",
-        "url": "index.user"
+        "url": "index.user6"
     }
 ]

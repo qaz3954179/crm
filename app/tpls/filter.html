@@ -1,8 +1,8 @@
 <div>
-    <div datepicker class="input-append date">
+    <div class="input-append date">
         <label>统计日期</label>
-        <input type="text" value="{{today}}">
+        <input id="search-input" datepicker="update(date)" type="text" value="{{date}}" date="date">
         <span class="add-on"><i class="icon-th"></i></span>
-        <button class="btn btn-primary">查询</button>
+        <button search="search(date)" date class="btn btn-primary" >查询</button>
     </div>
 </div>

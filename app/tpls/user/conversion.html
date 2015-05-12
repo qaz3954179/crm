@@ -27,11 +27,11 @@
             <td>&nbsp</td>
             <td>&nbsp</td>
             <td>&nbsp</td>
-            <td>{{(d.valided / d.registed * 100).toFixed(0) + '%'}}</td>
-            <td>{{(d.huifu / d.registed * 100).toFixed(0) + '%'}}</td>
-            <td>{{(d.firstRecharge / d.registed * 100).toFixed(0) + '%'}}</td>
-            <td>{{(d.firstInvest / d.registed * 100).toFixed(0) + '%'}}</td>
-            <td>{{(d.registedAndInvested / d.registed * 100).toFixed(0) + '%'}}</td>
+            <td>{{(d.valided / d.registed) | percent}}</td>
+            <td>{{(d.huifu / d.registed) | percent}}</td>
+            <td>{{(d.firstRecharge / d.registed) | percent}}</td>
+            <td>{{(d.firstInvest / d.registed) | percent}}</td>
+            <td>{{(d.registedAndInvested / d.registed) | percent}}</td>
         </tr>
         <tr>
             <td>预警值</td>

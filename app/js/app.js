@@ -3,11 +3,14 @@ var reportApp = angular.module('ReportApp', [
     'ui.router', 
     'ReportApp.Controllers',
     'ReportApp.Services',
-    'ReportApp.Directives']);
+    'ReportApp.Directives',
+    'ReportApp.Filters']);
 
 reportApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider
+        .when('/user/{path:.*}', '/user')
+        .when('/trade/{path:.*}', '/trade');
 
-    $urlRouterProvider.when('/user/converage', '/user');
     $stateProvider.state('index', {
         abstract: true,
         resolve: {
@@ -36,23 +39,33 @@ reportApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvid
             },
             'navbar': {
                 templateUrl: '/app/tpls/navbar.html',
-                controller: ['$scope', 'navbarObj', function ($scope, navbarObj) {
-                    $scope.navbarList = navbarObj.data;
+                controller: ['$scope', '$state', 'navbarObj', function ($scope, $state, navbarObj) {
+                    var list = [];
+                    $.each(navbarObj.data, function (index, val) {
+                        if (val.url === $state.current.name) {
+                            $.extend(val, {
+                                active: 'active'
+                            });
+                        }
+                        list.push(val);
+                    })
+                    $scope.navbarList = list;
                 }]
             }
         }
     }).state('index.user', {
-        url: '/user',
+        url: '/user?date',
         views: {
             'filter@index': {
-                templateUrl: '/app/tpls/filter.html'
+                templateUrl: '/app/tpls/filter.html',
+                controller: 'FilterCtrl'
             },
             'category@index': {
                 templateUrl: '/app/tpls/category.html',
                 controller: 'CategoryCtrl'
             },
             'content@index': {
-                templateUrl: '/app/tpls/user/content.html',
+                templateUrl: '/app/tpls/content.html',
                 controller: 'CategoryCtrl'
             },
             'conversion@index.user': {
@@ -62,6 +75,34 @@ reportApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvid
             'converage@index.user': {
                 templateUrl: '/app/tpls/user/converage.html',
                 controller: 'ConverageCtrl'
+            },
+            'dataPerDay@index.user': {
+                template: '<h1>UV:{{d.uv}}</h1>',
+                controller: function ($scope) {
+                    $scope.d = {
+                        uv: 25000
+                    };
+                }
+            }
+        }
+    }).state('index.trade', {
+        url: '/trade?date',
+        views: {
+            'filter@index': {
+                templateUrl: '/app/tpls/filter.html',
+                controller: 'FilterCtrl'
+            },
+            'category@index': {
+                templateUrl: '/app/tpls/category.html',
+                controller: 'CategoryCtrl'
+            },
+            'content@index': {
+                templateUrl: '/app/tpls/content.html',
+                controller: 'CategoryCtrl'
+            },
+            'p2p@index.trade': {
+                templateUrl: '/app/tpls/trade/p2p.html',
+                controller: 'P2PCtrl'
             }
         }
     });

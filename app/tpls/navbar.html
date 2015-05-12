@@ -1,5 +1,5 @@
-<ul class="nav navbar-nav" ng-repeat="item in navbarList">
-    <li>
+<ul class="nav navbar-nav">
+    <li ng-repeat="item in navbarList" class="{{item.active}}">
         <a ui-sref="{{item.url}}">{{item.name}}</a>
     </li>
 </ul>

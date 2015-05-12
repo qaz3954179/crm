@@ -1,5 +1,5 @@
 {
-    "conversion": [
+    "user": [
         {
             "name": "全站用户注册转化",
             "url": "conversion"
@@ -8,12 +8,27 @@
             "url": "converage"    
         }, {
             "name": "手机用户每日数据",
-            "url": "#"
+            "url": "dataPerDay"
         }, {
             "name": "手机新用户每日数据",
             "url": "#"
         }, {
             "name": "手机用户历史累计数据",
+            "url": "#"
+        }
+    ],
+    "trade": [
+        {
+            "name": "P2P直投",
+            "url": "p2p"
+        }, {
+            "name": "债转市场",
+            "url": "credit"    
+        }, {
+            "name": "基金当日产品数据",
+            "url": "#"
+        }, {
+            "name": "当日开户用户数据",
             "url": "#"
         }
     ]
